@@ -1,7 +1,7 @@
 
 function loadDoc() {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric", false);
+    xhttp.open("GET", "http://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric", false);
     xhttp.send();
 
     var tempdata = xhttp.responseText;

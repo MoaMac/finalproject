@@ -11,6 +11,7 @@
   <div>BILD PÅ / IKONER FÖR KLÄDER FÖR VÄDER</div>
   <div></div>
 <button type="button" onclick="loadDoc()">Get weather</button>
+<script src="wheaterData.js"></script>
 
 <script>
 function loadDoc() {
@@ -33,6 +34,12 @@ if (jesus > 0){
  alert("DET ÄR FÖR VARMT FÖR VINTERJACKA NU, PÅ MED SHORTS");
 }
 }
+_.findKey(wheaterData, { 'dt_txt': '2017-02-04 15:00:00' });
+
+// Vi behöver skapa metoder för att välja ut vissa specifika objekt
+// ur det stora JSON-objektet. Tex vill vi kunna välja ut "temp", "description",
+//"clouds", "wind", för ett specifikt mättillfälle.
+
 </script>
 </body>
 </html>

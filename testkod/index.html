@@ -2,22 +2,36 @@
 <html>
 <body>
 
-<h1>London weather</h1>
+<h1>WeatherWear</h1>
 
-<p id="demo">The weather in your location</p>
-
+<p id="demo">Potatoes are grown in the rural parts of the US, Sweden, and even Usbekistan.
+  Potatoes are great. Believe me, I know some of the best potato farmers out there are let me tell ya, we have the greatest people.
+  Truly the greatest of all potatoes.</p>
+<P id="kartoffel">Nein</p>
+  <div>BILD PÅ / IKONER FÖR KLÄDER FÖR VÄDER</div>
+  <div></div>
 <button type="button" onclick="loadDoc()">Get weather</button>
 
 <script>
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Stockholm&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric", false);
+  xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric", false);
   xhttp.send();
-  document.getElementById("demo").innerHTML = xhttp.responseText;
 
 var tempdata = xhttp.responseText;
-potato = JSON.parse(tempdata)
-console.log(potato.main.temp_max)
+var potato = JSON.parse(tempdata)
+var jesus = potato.main.temp_max;
+var lucas = potato.main.temp;
+
+
+
+console.log(jesus);
+console.log(potato);
+document.getElementById("kartoffel").innerHTML = jesus;
+
+if (jesus > 0){
+ alert("DET ÄR FÖR VARMT FÖR VINTERJACKA NU, PÅ MED SHORTS");
+}
 }
 </script>
 </body>

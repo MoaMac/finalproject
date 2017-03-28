@@ -4,21 +4,21 @@
 
 <h1>London weather</h1>
 
-<p id="demo">London weather here</p>
+<p id="demo">The weather in your location</p>
 
 <button type="button" onclick="loadDoc()">Get weather</button>
 
 <script>
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=London&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric", false);
+  xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Stockholm&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric", false);
   xhttp.send();
   document.getElementById("demo").innerHTML = xhttp.responseText;
 
-var potato = xhttp.responseText;
-console.log(JSON.parse(potato));
+var tempdata = xhttp.responseText;
+potato = JSON.parse(tempdata)
+console.log(potato.main.temp_max)
 }
 </script>
-
 </body>
 </html>

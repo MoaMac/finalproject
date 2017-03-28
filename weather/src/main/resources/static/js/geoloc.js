@@ -1,3 +1,8 @@
+var currentPosition = {
+    lat: 1,
+    lng: 1
+};
+
 function getCurrentLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -5,8 +10,8 @@ function getCurrentLocation() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-
-            console.log("pos: ", pos);
+            currentPosition.lat = pos.lat;
+            currentPosition.lng = pos.lng;
         }, function() {
             handleLocationError(true);
         });
@@ -21,3 +26,5 @@ function handleLocationError(browserHasGeolocation) {
       'Error: Your browser doesn\'t support geolocation.';
   alert(errormsg);
 }
+
+

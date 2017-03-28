@@ -5,7 +5,10 @@
     <!DOCTYPE html>
     <html>
 <body>
-
+<script src="js/geoloc.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation">
+</script>
 <h1>WeatherWear</h1>
 
 <p id="demo">Potatoes are grown in the rural parts of the US, Sweden, and even Usbekistan.
@@ -17,6 +20,7 @@
 <div>BILD PÅ / IKONER FÖR KLÄDER FÖR VÄDER</div>
 <div></div>
 <button type="button" onclick="loadDoc()">Get weather</button>
+
 
 <script src="weather.js"></script>
 </body>

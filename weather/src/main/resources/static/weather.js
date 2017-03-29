@@ -1,11 +1,4 @@
-
-
-
-
-    document.getElementById("img1").setAttribute("src",images. WeatherDemo.rainbow);
-    document.getElementById("clothes1").setAttribute("src",images. WeatherDemo.fashion);
-
-
+setTimeout(function loadPage() {
     var xhttp = new XMLHttpRequest();
     var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + currentPosition.lat + "&lon=" + currentPosition.lng + "&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
     console.log(url);
@@ -19,15 +12,16 @@
 
     console.log(temp);
     console.log(clouds);
+    console.log(data);
     document.getElementById("temp").innerHTML = temp;
     document.getElementById("clouds").innerHTML = clouds;
     document.getElementById("wind").innerHTML = wind;
 
 
-
-console.log("testing testing");
-console.log(currentPosition);
-console.log("testing testing");
+    console.log("testing testing");
+    console.log(currentPosition);
+    console.log("testing testing");
+}, 500);
 
 
 

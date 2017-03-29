@@ -13,24 +13,26 @@
     </header>
     <main>
         <article>
-                <div id ="infotext">
+            <div id="infotext">
+                    <p>Temperature: <span id="temp">temp</span> degrees Celsius</p>
+                    <p>Clouds: <span id="clouds">clouds</span> % of sky</p>
+                    <p>Wind speed: <span id="wind">wind</span> m/s</p>
+                    <img id="img1">
+            </div>
 
-                    <div id="info">
-                        <p>Temperature: <span id="temp">temp</span> degrees Celsius</p>
-                        <p>Clouds: <span id="clouds">clouds</span> % of sky</p>
-                        <p>Wind speed: <span id="wind">wind</span> m/s</p>
-                    </div>
-
-                    <div id="weather"><img id="img1"></div>
-
-
+            <div id="clothes">
+                <div>
+                    <img id="img2">
+                    <img id="img3">
                 </div>
-
-
-            <div id="clothes"><img id="clothes1"></div>
-
+                <div>
+                    <img id="img4">
+                    <img id="img5">
+                </div>
+            </div>
         </article>
     </main>
+    <div id="mess"><span id="message"></span></div>
 </div>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation">
@@ -38,6 +40,7 @@
 <script src="img.js"></script>
 <script src="geoloc.js"></script>
 <script src="weather.js"></script>
+<script src="transmuter.js"></script>
 </body>
 </html>
 

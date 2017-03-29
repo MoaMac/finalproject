@@ -1,64 +1,67 @@
 body,
 #container {
-  background-color: white;
-  width: 80%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: 0;
-  margin: 0 auto;
-  color: royalblue;
-  display: flex;
-  align-items: center;
+    background-color: white;
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    margin: 0 auto;
+    color: royalblue;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 header {
-  height: 10%;
-  background-color: white;
+    height: 10%;
+    background-color: white;
+    text-align: center;
 }
 
 main {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
 
 }
 
 #container {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 article {
-  background-color: white;
-  flex: 1;
-  text-align: center;
+    background-color: white;
+    flex: 1;
+    text-align: center;
+    border-style: ridge
 }
 
 article div {
-  float: left;
-  overflow: auto;
-  width: 50%;
+    float: left;
+    overflow: auto;
+    width: 50%;
 }
 
 #infotext {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
-#today {
-  height: 100vh;
-  background-color: #bcf0ff;
+#mess {
+    font-family: 'Poiret One', cursives;
+    padding: 2em;
+    font-size: 2em;
 }
 
-#tomorrow {
-  height: 100vh;
-  background-color: yellow;
+#img1 {
+    width: 50%;
 }
 
 h1 {
-  font-family: 'Poiret One', cursive;
-  font-size: 2em;
+    font-family: 'Poiret One', cursive;
+    font-size: 2em;
 }

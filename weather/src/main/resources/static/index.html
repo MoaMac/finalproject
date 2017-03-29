@@ -1,21 +1,38 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>Final project</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
 <body>
-<script src="js/geoloc.js"></script>
+<div id="container">
+    <header>
+        <p>DRESS FOR WEATHER</p>
+    </header>
+    <main>
+        <article>
+            <div id="today">
+                <h1>WeatherWear</h1>
+                <p id="demo">Potatoes are grown in the rural parts of the US, Sweden, and even Usbekistan.
+                    Potatoes are great. Believe me, I know some of the best potato farmers out there are let me tell ya, we have the greatest people.
+                    Truly the greatest of all potatoes.</p>
+                <p>Temperature: <span id="temp">temp</span> degrees Celsius</p>
+                <p>Clouds: <span id="clouds">clouds</span> % of sky</p>
+                <p>Wind speed: <span id="wind">wind</span> m/s</p>
+                <div>BILD PÅ / IKONER FÖR KLÄDER FÖR VÄDER</div>
+                <div></div>
+                <button type="button" onclick="loadDoc()">Get weather</button>
+                <!-- <script src="wheaterData.js"></script> -->
+            </div>
+
+        </article>
+    </main>
+</div>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation">
 </script>
-<h1>WeatherWear</h1>
-
-<p id="demo">Potatoes are grown in the rural parts of the US, Sweden, and even Usbekistan.
-    Potatoes are great. Believe me, I know some of the best potato farmers out there are let me tell ya, we have the greatest people.
-    Truly the greatest of all potatoes.</p>
-<P id="kartoffel">Nein</p>
-<div>BILD PÅ / IKONER FÖR KLÄDER FÖR VÄDER</div>
-<div></div>
-<button type="button" onclick="loadDoc()">Get weather</button>
-<!-- <script src="wheaterData.js"></script> -->
+<script src="js/geoloc.js"></script>
 <script src="weather.js"></script>
-
 </body>
 </html>

@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Final project</title>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
 <div id="container">
     <header>
-        <p>DRESS FOR WEATHER</p>
+        <h1>WeatherWear</h1>
     </header>
     <main>
         <article>
-            <div id="today">
-                <h1>WeatherWear</h1>
-                <p id="demo">Potatoes are grown in the rural parts of the US, Sweden, and even Usbekistan.
-                    Potatoes are great. Believe me, I know some of the best potato farmers out there are let me tell ya, we have the greatest people.
-                    Truly the greatest of all potatoes.</p>
-                <p>Temperature: <span id="temp">temp</span> degrees Celsius</p>
-                <p>Clouds: <span id="clouds">clouds</span> % of sky</p>
-                <p>Wind speed: <span id="wind">wind</span> m/s</p>
-                <div>BILD PÅ / IKONER FÖR KLÄDER FÖR VÄDER</div>
-                <div></div>
-                <button type="button" onclick="loadDoc()">Get weather</button>
-                <!-- <script src="wheaterData.js"></script> -->
-            </div>
+                <div id ="infotext">
+
+                    <div id="info">
+                        <p>Temperature: <span id="temp">temp</span> degrees Celsius</p>
+                        <p>Clouds: <span id="clouds">clouds</span> % of sky</p>
+                        <p>Wind speed: <span id="wind">wind</span> m/s</p>
+                    </div>
+
+                    <div id="weather"><img id="img1"></div>
+
+
+                </div>
+
+
+            <div id="clothes"><img id="clothes1"></div>
 
         </article>
     </main>
@@ -32,7 +35,18 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation">
 </script>
-<script src="js/geoloc.js"></script>
+<script src="img.js"></script>
+<script src="geoloc.js"></script>
 <script src="weather.js"></script>
 </body>
 </html>
+
+<!--<button type="button" onclick="loadDoc()">Get weather</button>-->
+
+<!--<div id="today">-->
+<!--<h1>WeatherWear</h1>-->
+<!--<p id="demo">FillerTextFillerText</p>-->
+
+<!--<div><img id="img1"></div>-->
+<!--<div><img id=""</div>-->
+<!--</div>-->

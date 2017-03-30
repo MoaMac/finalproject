@@ -28,11 +28,11 @@ if (-10 < temp < 0) {
 
 // if just above zero and no rain
 if (0 < temp < 5) {
-    img1 = "img/021-winter-hat.svg";
-    img2 = "img/036-snowing.svg";
-    img3 = "img/036-snowing.svg";
-    img4 = "img/036-snowing.svg";
-    img5 = "img/036-snowing.svg";
+    img1 = "img/048-cloud.svg";
+    img2 = "img/014-christmas-1.svg";
+    img3 = "img/017-vest.svg";
+    img4 = "img/009-jacket-3.svg";
+    img5 = "img/019-gloves.svg";
     message = "Boring, cold weather. Wear something warm and colorful.";
 }
 // // if just above zero and raining

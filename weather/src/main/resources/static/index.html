@@ -1,33 +1,32 @@
 <!DOCTYPE>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Final project</title>
-        <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css" type="text/css">
-    </head>
-    <body>
-        <div id="container">
-            <header>
-                <h1>WeatherWear</h1>
-
-                <button type="button" onclick="loadStaticDestiniation('Tokyo')">Japan</button>
+<head>
+    <meta charset="UTF-8">
+    <title>Final project</title>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+<div id="container">
+    <header>
+        <h1>WeatherWear</h1>
+      <button type="button" onclick="loadStaticDestiniation('Tokyo')">Japan</button>
                 <button type="button" onclick="loadStaticDestiniation('Svalbard')">Svalbard</button>
                 <button type="button" onclick="loadStaticDestiniation('Alaska')">Alaska</button>
                 <button type="button" onclick="loadStaticDestiniation('Barcelona')">Spain</button>
                 <button type="button" onclick="loadStaticDestiniation('London')">England</button>
                 <button type="button" onclick="loadStaticDestiniation('California')">California</button>
-
-            </header>
-            <main>
-                <article>
-                    <div id="infotext">
-                            <p>Temperature: <span id="temp">temp</span> degrees Celsius</p>
-                            <p>Clouds: <span id="clouds">clouds</span> % of sky</p>
-                            <p>Wind speed: <span id="wind">wind</span> m/s</p>
-                            <img id="img1">
-                    </div>
-
+    </header>
+    <main>
+        <article>
+            <div id="infotext">
+                <p id="temp"></p>
+                <p id="clouds"></p>
+                <p id="wind"></p>
+                <p id="desc"></p>
+                <p id="rain"></p>
+                <img id="img1">
+            </div>
                     <div id="clothes">
                         <div>
                             <img id="img2">

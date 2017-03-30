@@ -35,15 +35,15 @@ if (0 < temp < 5) {
     img5 = "img/036-snowing.svg";
     message = "Boring, cold weather. Wear something warm and colorful.";
 }
-// if just above zero and raining
-if (0 < temp < 5 && rain > 0) {
-    img1 = "img/036-snowing.svg";
-    img2 = "img/021-winter-hat.svg";
-    img3 = "img/022-christmas.svg";
-    img4 = "img/049-kitchen.svg";
-    img5 = "img/021-winter-hat.svg";
-    message = "Boring, cold weather. Wear something warm and colorful.";
-}
+// // if just above zero and raining
+// if (0 < temp < 5 && rain > 0) {
+//     img1 = "img/044-rain.svg";
+//     img2 = "img/011-raincoat.svg";
+//     img3 = "img/030-rainy.svg";
+//     img4 = "img/043-umbrella.svg";
+//     img5 = "img/022-christmas.svg";
+//     message = "It's cold and rainy today, bring an umbrella! ";
+// }
 
 
 document.getElementById("img1").setAttribute("src", img1);

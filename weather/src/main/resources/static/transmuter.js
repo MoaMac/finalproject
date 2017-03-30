@@ -36,7 +36,7 @@ if (0 < temp < 5) {
 }
 
 // if just above zero and partly sunny
-if (0 < temp < 5 && cloud < 75) {
+if (0 < temp < 5 && clouds < 75) {
     img1 = "img/048-cloud.svg";
     img2 = "img/024-shoe.svg";
     img3 = "img/017-vest.svg";
@@ -46,7 +46,7 @@ if (0 < temp < 5 && cloud < 75) {
 }
 
 // if spring weather
-if (5 < temp < 10 && cloud < 75) {
+if (5 < temp < 10 && clouds < 75) {
     img1 = "img/048-cloud.svg";
     img2 = "img/024-shoe.svg";
     img3 = "img/017-vest.svg";
@@ -55,7 +55,7 @@ if (5 < temp < 10 && cloud < 75) {
     message = "Feels like spring today, but still pretty cold.";
 }
 // if spring weather
-if (5 < temp < 10 && cloud < 50) {
+if (5 < temp < 10 && clouds < 50) {
     img1 = "img/041-sun.svg";
     img2 = "img/024-shoe.svg";
     img3 = "img/017-vest.svg";

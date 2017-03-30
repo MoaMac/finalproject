@@ -93,9 +93,9 @@ function loadLocation(lat, lon) {
     console.log("temp: ", temp);
     console.log("clouds: ", clouds);
     console.log("data: ", data);
-    document.getElementById("temp").innerHTML = temp;
-    document.getElementById("clouds").innerHTML = clouds;
-    document.getElementById("wind").innerHTML = wind;
+    document.getElementById("temp").innerHTML = temp + "° C";
+    document.getElementById("clouds").innerHTML = clouds + " %";
+    document.getElementById("wind").innerHTML = wind + " m/s";
 
     //console.log("testing testing");
     console.log("currentPosition: ", currentPosition);

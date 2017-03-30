@@ -29,7 +29,6 @@ var images = {
         sweater: "img/014-christmas-1.svg",
         winterhat: "img/021-winter-hat.svg",
         scarf: "img/022-christmas.svg",
-
         anotherscarf:"static/img2/001-christmas-1.svg",
         jumper: "static/img2/002-fashion-2.svg",
         bluepinkwinterhat: "static/img2/003-hat-1.svg",
@@ -49,7 +48,10 @@ var images = {
         denimjacket: "static/img2/007-denim-jacket.svg",
         ballerina:"static/img3/001-commerce.svg",
         skirt:"static/img2/018-clothes.svg",
-        pinksneaker: "static/img2/020-shoe.svg"
+        pinksneaker: "static/img2/020-shoe.svg",
+        jeans: "static/img3/008-jeans.svg",
+        leggings: "static/img3/009-socks.svg",
+        pinkskirt: "static/img3/010-skirt.svg"
     },
 
     ClothesSummer: {

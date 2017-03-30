@@ -31,5 +31,3 @@ function handleLocationError(browserHasGeolocation) {
       'Error: Your browser doesn\'t support geolocation.';
   alert(errormsg);
 }
-
-

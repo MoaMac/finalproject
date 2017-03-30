@@ -13,15 +13,13 @@ import javax.sql.DataSource;
 @RestController
 public class Weathercontroller {
 
-
     @Autowired
     RepositoryInterface repository;
 
-    //Vi måste också lägga till en GET-mapping för att spara ner info
-    @GetMapping("/Log/{Country}/{City}")
-    public void addPos(@PathVariable String Country,@PathVariable String City) throws Exception {
-        System.out.println(City + Country);
-        repository.addLog(Country, City);
+    @GetMapping("/Log/{country}/{city}")
+    public void addPos(@PathVariable String country,@PathVariable String city) throws Exception {
+        System.out.println(city + country);
+        repository.addLog(country, city);
 
     }
 }

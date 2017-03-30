@@ -1,55 +1,54 @@
 <!DOCTYPE>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Final project</title>
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" type="text/css">
-</head>
-<body>
-<div id="container">
-    <header>
-        <h1>WeatherWear</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>Final project</title>
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>WeatherWear</h1>
 
-        <button type="button" onclick="loadTokyo()">Japan</button>
-        <button type="button" onclick="loadSvalbard()">Svalbard</button>
-        <button type="button" onclick="loadAlaska()">Alaska</button>
-        <button type="button" onclick="loadBarcelona()">Spain</button>
-        <button type="button" onclick="loadLondon()">England</button>
-        <button type="button" onclick="loadCalifornia()">California</button>
+                <button type="button" onclick="loadStaticDestiniation('Tokyo')">Japan</button>
+                <button type="button" onclick="loadStaticDestiniation('Svalbard')">Svalbard</button>
+                <button type="button" onclick="loadStaticDestiniation('Alaska')">Alaska</button>
+                <button type="button" onclick="loadStaticDestiniation('Barcelona')">Spain</button>
+                <button type="button" onclick="loadStaticDestiniation('London')">England</button>
+                <button type="button" onclick="loadStaticDestiniation('California')">California</button>
 
-    </header>
-    <main>
-        <article>
-            <div id="infotext">
-                    <p>Temperature: <span id="temp">temp</span> degrees Celsius</p>
-                    <p>Clouds: <span id="clouds">clouds</span> % of sky</p>
-                    <p>Wind speed: <span id="wind">wind</span> m/s</p>
-                    <img id="img1">
-            </div>
+            </header>
+            <main>
+                <article>
+                    <div id="infotext">
+                            <p>Temperature: <span id="temp">temp</span> degrees Celsius</p>
+                            <p>Clouds: <span id="clouds">clouds</span> % of sky</p>
+                            <p>Wind speed: <span id="wind">wind</span> m/s</p>
+                            <img id="img1">
+                    </div>
 
-            <div id="clothes">
-                <div>
-                    <img id="img2">
-                    <img id="img3">
-                </div>
-                <div>
-                    <img id="img4">
-                    <img id="img5">
-                </div>
-            </div>
-        </article>
-    </main>
-    <div id="mess"><span id="message"></span></div>
-</div>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation">
-</script>
-<script src="img.js"></script>
-<script src="geoloc.js"></script>
-<script src="weather.js"></script>
-<script src="transmuter.js"></script>
-</body>
+                    <div id="clothes">
+                        <div>
+                            <img id="img2">
+                            <img id="img3">
+                        </div>
+                        <div>
+                            <img id="img4">
+                            <img id="img5">
+                        </div>
+                    </div>
+                </article>
+            </main>
+            <div id="mess"><span id="message"></span></div>
+        </div>
+
+        <script src="img.js"></script>
+        <script src="geoloc.js"></script>
+        <script src="weather.js"></script>
+        <script src="transmuter.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation"></script>
+    </body>
 </html>
 
 

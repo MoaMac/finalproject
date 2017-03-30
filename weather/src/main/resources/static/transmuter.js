@@ -26,7 +26,7 @@ if (-10 < temp < 0) {
     message = "Sooo Cold, wear something really warm!";
 }
 
-// if just above zero and no rain
+// if just above zero and grey
 if (0 < temp < 5) {
     img1 = "img/048-cloud.svg";
     img2 = "img/014-christmas-1.svg";
@@ -35,6 +35,45 @@ if (0 < temp < 5) {
     img5 = "img/019-gloves.svg";
     message = "Boring, cold weather. Wear something warm and colorful.";
 }
+
+// if just above zero and partly sunny
+if (0 < temp < 5 && cloud < 75) {
+    img1 = "img/048-cloud.svg";
+    img2 = "img/024-shoe.svg";
+    img3 = "img/017-vest.svg";
+    img4 = "img/009-jacket-3.svg";
+    img5 = "img/019-gloves.svg";
+    message = "Boring, cold weather. Wear something warm and colorful.";
+}
+
+// if spring weather
+if (5 < temp < 10 && cloud < 75) {
+    img1 = "img/048-cloud.svg";
+    img2 = "img/024-shoe.svg";
+    img3 = "img/017-vest.svg";
+    img4 = "img/005-jacket.svg";
+    img5 = "img/028-fashion.svg";
+    message = "Feels like spring today, but still pretty cold.";
+}
+// if spring weather
+if (5 < temp < 10 && cloud < 50) {
+    img1 = "img/041-sun.svg";
+    img2 = "img/024-shoe.svg";
+    img3 = "img/017-vest.svg";
+    img4 = "img/005-jacket.svg";
+    img5 = "img/028-fashion.svg";
+    message = "Sun is shineing today. Bring your sun glasses!";
+}
+
+if (rain > 15) {
+    img1 = "img/048-cloud.svg";
+    img2 = "img/024-shoe.svg";
+    img3 = "img/017-vest.svg";
+    img4 = "img/005-jacket.svg";
+    img5 = "img/028-fashion.svg";
+    message = "Feels like spring today, but still pretty cold.";
+}
+
 // // if just above zero and raining
 // if (0 < temp < 5 && rain > 0) {
 //     img1 = "img/044-rain.svg";

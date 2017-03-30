@@ -102,73 +102,10 @@ function loadLocation(lat, lon) {
 
 
     //console.log("testing testing");
-    console.log("currentPosition: ", currentPosition);
+    console.log("currentCoordinates: ", currentCoordinates);
     //console.log("testing testing");
-
-    // REMOVE testing5dayForcast();
-    //testing5dayForcast();
 }
 
-
-function testing5dayForcast() {
-    console.log("testing5dayForcast START");
-
-
-    var xhttp = new XMLHttpRequest();
-    //var url  = "http://api.openweathermap.org/data/2.5/find?q=London&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
-    var url  = "http://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
-    console.log("url: ", url);
-    xhttp.open("GET", url, false);
-    xhttp.send();
-
-    var data = JSON.parse(xhttp.responseText);
-    console.log("data: ", data);
-
-    // LOCATION INFORMATION
-    var city = data.city;
-    var cityCountry = city.country;
-    var cityName = city.name;
-    console.log("cityName: ", cityName, ", cityCountry: ", cityCountry);
-
-    // WEATHER INFORMATION
-    var list = data.list;
-    var date;
-    var temp;
-    var weatherId;
-    var weatherMain;
-    var weatherDescription;
-    for(var i = 0; i < list.length; i++) {
-        date = list[i].dt_txt;
-        temp = list[i].main.temp;
-        console.log("DATA: ", date, " ", temp);
-
-        var weather = list[i].weather[0];
-        weatherId = weather.id;
-        weatherMain = weather.main;
-        weatherDescription = weather.description;
-        console.log("WEATHER: ", weatherId, " ", weatherMain, ": ", weatherDescription);
-    }
-
-
-    /*
-    var utcSeconds = 1234567890;
-    var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
-    d.setUTCSeconds(utcSeconds);
-    */
-
-    /*
-     01: 00
-     02: 03
-     03: 06
-     04: 09
-     05: 12
-     06: 15
-     07: 18
-     08: 21
-    */
-
-    console.log("testing5dayForcast STOP");
-}
 
 
 /*

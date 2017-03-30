@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<body>
+<>
 <div id="container">
     <header>
         <h1>WeatherWear</h1>
@@ -44,16 +44,22 @@
 
 </div>
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation">
-
-</script>
+<!--
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation"></script>
 <script src="img.js"></script>
 <script src="geoloc.js"></script>
 <script src="transmuter.js"></script>
-<script src="weather.js"></script>
+<script src="weather.js"></script> -->
 <!--<script src="transmuter.js"></script>-->
-</body>
+
+        <script src="img.js"></script>
+        <script src="geoloc.js"></script>
+        <script src="transmuter.js"></script>
+        <script src="weather.js"></script>
+        <script src="js/forcast.js"></script>
+        <!-- below script (<script async defer src="...) must be the last imported script -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation"></script>
+    </body>
 </html>
 
 

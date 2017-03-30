@@ -3,7 +3,6 @@ var img2;
 var img3;
 var img4;
 var img5;
-
 var message;
 
 // if really cold
@@ -28,22 +27,22 @@ if (-10 < temp < 0) {
 
 // if just above zero and no rain
 if (0 < temp < 5) {
-    img1 = "img/021-winter-hat.svg";
-    img2 = "img/036-snowing.svg";
-    img3 = "img/036-snowing.svg";
-    img4 = "img/036-snowing.svg";
-    img5 = "img/036-snowing.svg";
+    img1 = "img/048-cloud.svg";
+    img2 = "img/014-christmas-1.svg";
+    img3 = "img/017-vest.svg";
+    img4 = "img/009-jacket-3.svg";
+    img5 = "img/019-gloves.svg";
     message = "Boring, cold weather. Wear something warm and colorful.";
 }
-// if just above zero and raining
-if (0 < temp < 5 && rain > 0) {
-    img1 = "img/036-snowing.svg";
-    img2 = "img/021-winter-hat.svg";
-    img3 = "img/022-christmas.svg";
-    img4 = "img/049-kitchen.svg";
-    img5 = "img/021-winter-hat.svg";
-    message = "Boring, cold weather. Wear something warm and colorful.";
-}
+// // if just above zero and raining
+// if (0 < temp < 5 && rain > 0) {
+//     img1 = "img/044-rain.svg";
+//     img2 = "img/011-raincoat.svg";
+//     img3 = "img/030-rainy.svg";
+//     img4 = "img/043-umbrella.svg";
+//     img5 = "img/022-christmas.svg";
+//     message = "It's cold and rainy today, bring an umbrella! ";
+// }
 
 
 document.getElementById("img1").setAttribute("src", img1);

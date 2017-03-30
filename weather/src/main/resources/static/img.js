@@ -44,8 +44,6 @@ var images = {
         winterhat: "img/021-winter-hat.svg",
         scarf: "img/022-christmas.svg",
         gloves:"img/049-kitchen.svg"
-
-
     },
 
     ClothesSummer: {
@@ -80,16 +78,12 @@ var images = {
         thunder: "img/035-sky.svg",
         blackcloud: "img/046-cloud-1.svg",
         flash: "img/047-flash.svg"
-
-
     },
 
     WeatherRaing: {
         rain: "img/039-rain-1.svg",
         umbrella: "img/043-umbrella.svg",
         cloudrain: "img/044-rain.svg"
-
-
     },
 
     WeatherWindy: {

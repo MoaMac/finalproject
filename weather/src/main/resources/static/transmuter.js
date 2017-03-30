@@ -3,7 +3,6 @@ var img2;
 var img3;
 var img4;
 var img5;
-
 var message;
 
 // if really cold
@@ -26,17 +25,17 @@ if (-10 < temp < 0) {
     message = "Sooo Cold, wear something really warm!";
 }
 
-// if just above zero and no rain
-if (0 < temp < 5) {
-    img1 = "img/021-winter-hat.svg";
-    img2 = "img/036-snowing.svg";
-    img3 = "img/036-snowing.svg";
-    img4 = "img/036-snowing.svg";
-    img5 = "img/036-snowing.svg";
-    message = "Boring, cold weather. Wear something warm and colorful.";
-}
+// // if just above zero and no rain
+// if (0 < temp < 5) {
+//     img1 = "img/021-winter-hat.svg";
+//     img2 = "img/036-snowing.svg";
+//     img3 = "img/036-snowing.svg";
+//     img4 = "img/036-snowing.svg";
+//     img5 = "img/036-snowing.svg";
+//     message = "Boring, cold weather. Wear something warm and colorful.";
+// }
 // if just above zero and raining
-if (0 < temp < 5 && rain > 0) {
+if (0 < temp < 5) {
     img1 = "img/036-snowing.svg";
     img2 = "img/021-winter-hat.svg";
     img3 = "img/022-christmas.svg";

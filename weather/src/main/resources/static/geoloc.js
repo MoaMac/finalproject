@@ -2,6 +2,11 @@ var currentPosition = {
     lat: 1,
     lng: 1
 };
+/**
+ * Gör demos för
+ * Los Angeles:
+ * Moscow:
+ * ***/
 
 function getCurrentLocation() {
     if (navigator.geolocation) {

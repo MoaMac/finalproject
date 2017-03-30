@@ -9,6 +9,7 @@ setTimeout(function loadPage() {
     var temp = data.main.temp;
     var clouds = data.clouds.all;
     var wind = data.wind.speed;
+    var rain = data.
 
     console.log(temp);
     console.log(clouds);

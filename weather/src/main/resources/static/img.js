@@ -90,7 +90,7 @@ var images = {
     },
 
     WeatherCold: {
-        thermometer: "img/038-thermometer.svg"
+        thermometer: "img/033-weather-1.svg"
 
     },
 

@@ -70,7 +70,6 @@ var images = {
     ClothesAutumn: {
         jacket: "img/009-jacket-3.svg",
         vest: "img/017-vest.svg",
-        gloves: "img/019-gloves.svg",
         orangejacket: "static/img2/006-jacket.svg",
         redscarf:"static/img2/022-scarf.svg",
         greygloves: "static/img3/002-clothes.svg",

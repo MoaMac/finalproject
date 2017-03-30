@@ -96,6 +96,7 @@ function loadLocation(lat, lon) {
     document.getElementById("temp").innerHTML = temp;
     document.getElementById("clouds").innerHTML = clouds;
     document.getElementById("wind").innerHTML = wind;
+    transmute();
 
     //console.log("testing testing");
     console.log("currentPosition: ", currentPosition);

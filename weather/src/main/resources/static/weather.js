@@ -9,7 +9,14 @@ setTimeout(function loadPage() {
     var temp = data.main.temp;
     var clouds = data.clouds.all;
     var wind = data.wind.speed;
-    var rain = data.
+
+    var Country = data.sys.country;
+    var City = data.name;
+    console.log(Country + City);
+    xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "/Log/" + Country + "/" + City, false);
+    xhttp.send();
+
 
     console.log(temp);
     console.log(clouds);

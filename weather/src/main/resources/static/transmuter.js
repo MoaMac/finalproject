@@ -37,6 +37,7 @@ function transmute(temp){
         message = "Boring, cold weather. Wear something warm and colorful.";
     }
 
+
     if (5 < temp && temp < 10) {
         img1 =  "img/048-cloud.svg";//Cloud
         img2 = "img2/006-jacket.svg";//Jacka
@@ -77,6 +78,53 @@ function transmute(temp){
 //     img4 = "img/030-rainy.svg"; // Gummistvölar
 //     img5 = "img2/021-swimsuit.svg"; //Swimsuit
 //     message = "Boring, cold weather. Wear something warm and colorful.";
+
+// if just above zero and partly sunny
+// if (0 < temp < 5 && clouds < 75) {
+//     img1 = "img/048-cloud.svg";
+//     img2 = "img/024-shoe.svg";
+//     img3 = "img/017-vest.svg";
+//     img4 = "img/009-jacket-3.svg";
+//     img5 = "img/019-gloves.svg";
+//     message = "Boring, cold weather. Wear something warm and colorful.";
+// }
+
+// // if spring weather
+// if (5 < temp < 10 && clouds < 75) {
+//     img1 = "img/048-cloud.svg";
+//     img2 = "img/024-shoe.svg";
+//     img3 = "img/017-vest.svg";
+//     img4 = "img/005-jacket.svg";
+//     img5 = "img/028-fashion.svg";
+//     message = "Feels like spring today, but still pretty cold.";
+// }
+// // if spring weather
+// if (5 < temp < 10 && clouds < 50) {
+//     img1 = "img/041-sun.svg";
+//     img2 = "img/024-shoe.svg";
+//     img3 = "img/017-vest.svg";
+//     img4 = "img/005-jacket.svg";
+//     img5 = "img/028-fashion.svg";
+//     message = "Sun is shineing today. Bring your sun glasses!";
+// }
+
+// if (rain > 15) {
+//     img1 = "img/048-cloud.svg";
+//     img2 = "img/024-shoe.svg";
+//     img3 = "img/017-vest.svg";
+//     img4 = "img/005-jacket.svg";
+//     img5 = "img/028-fashion.svg";
+//     message = "Feels like spring today, but still pretty cold.";
+// }
+
+// // if just above zero and raining
+// if (0 < temp < 5 && rain > 0) {
+//     img1 = "img/044-rain.svg";
+//     img2 = "img/011-raincoat.svg";
+//     img3 = "img/030-rainy.svg";
+//     img4 = "img/043-umbrella.svg";
+//     img5 = "img/022-christmas.svg";
+//     message = "It's cold and rainy today, bring an umbrella! ";
 // }
 //     img1 = "img/048-cloud.svg";
 //     img2 = "img/024-shoe.svg";

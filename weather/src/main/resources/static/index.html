@@ -10,6 +10,12 @@
 <div id="container">
     <header>
         <h1>WeatherWear</h1>
+      <button type="button" onclick="loadStaticDestiniation('Tokyo')">Japan</button>
+                <button type="button" onclick="loadStaticDestiniation('Svalbard')">Svalbard</button>
+                <button type="button" onclick="loadStaticDestiniation('Alaska')">Alaska</button>
+                <button type="button" onclick="loadStaticDestiniation('Barcelona')">Spain</button>
+                <button type="button" onclick="loadStaticDestiniation('London')">England</button>
+                <button type="button" onclick="loadStaticDestiniation('California')">California</button>
     </header>
     <main>
         <article>
@@ -21,32 +27,29 @@
                 <p id="rain"></p>
                 <img id="img1">
             </div>
+                    <div id="clothes">
+                        <div>
+                            <img id="img2">
+                            <img id="img3">
+                        </div>
+                        <div>
+                            <img id="img4">
+                            <img id="img5">
+                        </div>
+                    </div>
+                </article>
+            </main>
+            <div id="mess"><span id="message"></span></div>
+        </div>
 
-            <div id="clothes">
-                <div>
-                    <img id="img2">
-                    <img id="img3">
-                </div>
-                <div>
-                    <img id="img4">
-                    <img id="img5">
-                </div>
-            </div>
-        </article>
-    </main>
-    <div id="mess"><span id="message"></span></div>
-</div>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation">
-</script>
-<script src="img.js"></script>
-<script src="geoloc.js"></script>
-<script src="weather.js"></script>
-<script src="transmuter.js"></script>
-</body>
+        <script src="img.js"></script>
+        <script src="geoloc.js"></script>
+        <script src="weather.js"></script>
+        <script src="transmuter.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJaSM4geCc5JiQ1ATl2CebGfQV1XeUYG0&callback=getCurrentLocation"></script>
+    </body>
 </html>
 
-<!--<button type="button" onclick="loadDoc()">Get weather</button>-->
 
 <!--<div id="today">-->
 <!--<h1>WeatherWear</h1>-->

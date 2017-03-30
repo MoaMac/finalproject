@@ -38,7 +38,7 @@ article {
     background-color: white;
     flex: 1;
     text-align: center;
-    border-style: ridge
+    border-style: solid;
 }
 
 article div {
@@ -64,4 +64,15 @@ article div {
 h1 {
     font-family: 'Poiret One', cursive;
     font-size: 2em;
+}
+
+button {
+    background: #3498db;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    border: solid #3498db 0px;
+    text-decoration: none;
 }

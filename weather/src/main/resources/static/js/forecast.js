@@ -11,7 +11,7 @@ function getSpecificForecastData(monthDay, hour) {
     monthDay = "MD" + monthDay;
     hour = "H" + hour;
 
-    forecastData = JSON.parse(forecastData);
+    //forecastData = JSON.parse(forecastData);
 
 
     var specificData;

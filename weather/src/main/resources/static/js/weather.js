@@ -96,10 +96,77 @@ function loadLocation(coordinates) {
             document.getElementById("temp").innerHTML = "Temp: " + temp + "° C";
             document.getElementById("clouds").innerHTML = "Cloudiness: " + clouds + " %";
             document.getElementById("wind").innerHTML = "Wind speed: " + wind + " m/s";
+
             transmute(temp);
         }
+            
+        //console.log("Month day: " + monthDay, " hour: ", hour, ": ", temp, "C ", clouds, "% ", wind, " m/s ", weather);
     }
 
     stringJson += "}]}";
-    forecastData = stringJson;
+    forecastData = JSON.parse(stringJson);
+    setFiveDayForecast(forecastData);
+}
+
+function getRowNodes(rowNumber) {
+    var nodesArray = [];
+    var tempArray = document.getElementById("row" + rowNumber).childNodes;
+    var index = 0;
+    for(var j = 0; j < tempArray.length; j++) {
+        node = tempArray[j];
+        if(node.tagName == 'DIV') {
+            nodesArray[index] = node;
+            index++;
+        }
+    }
+    return nodesArray;
+}
+
+function setFiveDayForecast(forecastData) {
+    var monthDays = [];
+    var index = 0;
+    for (var monthDay in forecastData) {
+        monthDays[index] = monthDay;
+        index++;
+        console.log("monthDay: " + monthDay);
+        // console.log("Value: " + forecastData[monthDay]);
+    }
+
+    var rowNodesAll = [getRowNodes(2), getRowNodes(3), getRowNodes(4), getRowNodes(5), getRowNodes(6)];
+
+    for(var i = 0; i < rowNodesAll.length; i++) {
+        console.log("### rowNodesAll[i]: ", rowNodesAll[i]);
+        
+        rowNodesAll[i][0].innerHTML = monthDays[i];
+
+        for(var j = 0; j < rowNodesAll[i].length; j++) {
+            console.log("# rowNodesAll[i][j]: ", rowNodesAll[i][j]);
+        }
+    }
+
+    //nodesArray[4].innerHTML = data.temp;
+
+/*
+    var specificData;
+    try {
+        specificData = forecastData[monthDay][0][hour][0];
+    } catch(err) {
+        console.log("ERROR: ", err.message);
+        return;
+    }
+
+    var data = {
+        "temp": specificData.temp,
+        "clouds": specificData.clouds,
+        "wind": specificData.wind,
+        "weatherdesc": specificData.weatherdesc
+    }
+    */
+
+
+
+/*
+    var data = getSpecificForecastData(31, 18);
+    console.log("data: ", data);
+    */
 }

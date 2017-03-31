@@ -8,12 +8,14 @@ function getCurrentLocation() {
                 lon: position.coords.longitude
             };
 
-            loadLocation(currentCoordinates.lat, currentCoordinates.lon);
+            loadLocation(currentCoordinates);
 
             /* TESTING */
+            /*
             //currentTimeForecast(currentCoordinates);
             testing5dayForecast(currentCoordinates);
             getSpecificForecastData(1, 18);
+            */
 
         }, function () {
             handleLocationError(true);

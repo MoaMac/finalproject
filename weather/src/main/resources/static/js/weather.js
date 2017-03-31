@@ -70,6 +70,7 @@ function loadStaticDestiniation(city) {
     }
 }
 
+/*
 function loadLocation(lat, lon) {
     console.log("lat: ", lat, ", lon: ", lon);
     var xhttp = new XMLHttpRequest();
@@ -99,11 +100,92 @@ function loadLocation(lat, lon) {
     document.getElementById("wind").innerHTML = "Wind speed: " + wind + " m/s";
     transmute(temp);
 
-
-
     //console.log("testing testing");
     console.log("currentCoordinates: ", currentCoordinates);
     //console.log("testing testing");
+}
+*/
+
+function loadLocation(coordinates) {
+    console.log("LOGGING FROM forecast.js METHOD testing5dayForecast() START");
+    var xhttp = new XMLHttpRequest();
+    var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + coordinates.lat + "&lon=" + coordinates.lon + "&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
+    console.log("url: ", url);
+    xhttp.open("GET", url, false);
+    xhttp.send();
+
+    var data = JSON.parse(xhttp.responseText);
+
+    // LOCATION INFORMATION
+    var city = data.city;
+    var cityCountry = city.country;
+    var cityName = city.name;
+
+    // WEATHER INFORMATION
+    var list = data.list;
+    var now = new Date(0); // The 0 there is the key, which sets the date to the epoch
+    var monthDay = -1;
+    var hour;
+    var temp;
+    var clouds;
+    var wind;
+    var weather;
+
+    var stringJson = null;
+    var newMonthDay = false;
+    var firstDay = true;
+    for (var i = 0; i < list.length; i++) {
+        now = new Date(0);
+        now.setUTCSeconds(list[i].dt);
+        if (monthDay != -1) {
+            if (monthDay != now.getUTCDate()) {
+                newMonthDay = true;
+            } else {
+                newMonthDay = false;
+            }
+        }
+        monthDay = now.getUTCDate();
+        hour = now.getUTCHours();
+
+        temp = list[i].main.temp;
+        clouds = list[i].clouds.all;
+        wind = list[i].wind.speed;
+        weather = list[i].weather[0].main + ", " + list[i].weather[0].description;
+
+        if (newMonthDay || firstDay) {
+            firstDay = false;
+            if (stringJson != null) {
+                stringJson += "}],";
+            } else {
+                stringJson = "{";
+            }
+
+            stringJson += "\"MD" + monthDay + "\":[{\"H" + hour
+                + "\":[{\"temp\":\"" + temp
+                + "\",\"clouds\":\"" + clouds
+                + "\",\"wind\":\"" + wind
+                + "\",\"weatherdesc\":\"" + weather + "\"}]";
+        } else {
+            stringJson += ", \"H" + hour
+                + "\":[{\"temp\":\"" + temp
+                + "\",\"clouds\":\"" + clouds
+                + "\",\"wind\":\"" + wind
+                + "\",\"weatherdesc\":\"" + weather + "\"}]";
+        }
+
+        if(i == 0) {
+            document.getElementById("city").innerHTML = "City: " + cityName + ", " + cityCountry;
+            document.getElementById("temp").innerHTML = "Temp: " + temp + "° C";
+            document.getElementById("clouds").innerHTML = "Cloudiness: " + clouds + " %";
+            document.getElementById("wind").innerHTML = "Wind speed: " + wind + " m/s";
+            transmute(temp);
+        }
+    }
+
+    stringJson += "}]}";
+    forecastData = stringJson;
+
+    console.log("LOGGING FROM forecast.js METHOD testing5dayForecast() STOP");
 }
 
 

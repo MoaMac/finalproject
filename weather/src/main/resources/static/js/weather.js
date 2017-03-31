@@ -149,17 +149,19 @@ function setFiveDayForecast(forecastData) {
         for (var hour in monthDayData) {
             hours[indexInner] = hour;
             indexInner++;
-            console.log("hour: " + hour);
-            // console.log("Value: " + monthDayData[hour]);
         }
         indexInner = 0;
 
         var forLength = (hours.length < rowNodesAll[i].length) ? hours.length : rowNodesAll[i].length;
 
-        for(var j = 1; j < forLength; j++) {
+        for(var j = 0; j < forLength; j++) {
             var info = getSpecificForecastDataNumbers(monthDays[i], hours[j]);
+            console.log("info: ", info);
+            console.log("hours[j]: ", hours[j]);
             //console.log("%c info.temp: " + info.temp, 'background: #222; color: #bada55');
-            rowNodesAll[i][j].innerHTML = info.temp;
+            if(j != 0) {
+                rowNodesAll[i][j].innerHTML = info.temp;
+            }  
         }
     }
 

@@ -39,7 +39,7 @@ function getSpecificForecastData(monthDay, hour) {
 }
 
 function getSpecificForecastDataNumbers(monthDay, hour) {
-    console.log("LOGGING FROM forecast.js METHOD getSpecificForecastDataNumbers() START");
+    //console.log("LOGGING FROM forecast.js METHOD getSpecificForecastDataNumbers() START");
 
     if (forecastData == null) {
         console.log("LOG forecast.js getSpecificForecastDataNumbers(...): ERROR! No forecast data saved.");
@@ -64,7 +64,7 @@ function getSpecificForecastDataNumbers(monthDay, hour) {
         "weatherdesc": specificData.weatherdesc
     }
 
-    console.log("LOGGING FROM forecast.js METHOD getSpecificForecastDataNumbers() STOP");
+    //console.log("LOGGING FROM forecast.js METHOD getSpecificForecastDataNumbers() STOP");
     return data;
 }
 

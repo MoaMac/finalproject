@@ -19,7 +19,15 @@ function getSpecificForecastData(monthDay, hour) {
 
     forecastData = JSON.parse(forecastData);
 
-    var specificData = forecastData[monthDay][0][hour][0];
+
+    var specificData;
+    try {
+        specificData = forecastData[monthDay][0][hour][0];
+    } catch(err) {
+        console.log("ERROR: ", err.message);
+        return;
+    }
+
     var data = {
         "temp": specificData.temp,
         "clouds": specificData.clouds,
@@ -74,7 +82,7 @@ function getSpecificForecastData(monthDay, hour) {
  */
 
 function currentTimeForecast(coordinates) {
-    console.log("LOGGING FROM forecast.js METHOD currentTimeForcast() START");
+    console.log("LOGGING FROM forecast.js METHOD currentTimeForecast() START");
 
     var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + coordinates.lat + "&lon=" + coordinates.lon + "&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
     console.log("url: ", url);
@@ -99,7 +107,7 @@ function currentTimeForecast(coordinates) {
     console.log("Wind: ", wind, " m/s");
     console.log("Weather description: ", weatherMain, ", ", weatherDescription);
 
-    console.log("LOGGING FROM forecast.js METHOD currentTimeForcast() STOP");
+    console.log("LOGGING FROM forecast.js METHOD currentTimeForecast() STOP");
 }
 
 function testing5dayForecast(coordinates) {

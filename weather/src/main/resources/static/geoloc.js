@@ -1,9 +1,4 @@
 var currentCoordinates = 0;
-/**
- * Gör demos för
- * Los Angeles:
- * Moscow:
- * ***/
 
 function getCurrentLocation() {
     if (navigator.geolocation) {
@@ -16,9 +11,9 @@ function getCurrentLocation() {
             loadLocation(currentCoordinates.lat, currentCoordinates.lon);
 
             /* TESTING */
-            //currentTimeForcast(currentCoordinates);
-            testing5dayForcast(currentCoordinates);
-            getSpecificForcastData(30, 18);
+            //currentTimeForecast(currentCoordinates);
+            testing5dayForecast(currentCoordinates);
+            getSpecificForecastData(1, 18);
 
         }, function () {
             handleLocationError(true);

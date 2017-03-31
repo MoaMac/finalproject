@@ -152,6 +152,7 @@ function setFiveDayForecast(forecastData) {
         }
         indexInner = 0;
 
+/*
         var forLength = (hours.length < rowNodesAll[i].length) ? hours.length : rowNodesAll[i].length;
 
         for(var j = 0; j < forLength; j++) {
@@ -163,30 +164,95 @@ function setFiveDayForecast(forecastData) {
                 rowNodesAll[i][j].innerHTML = info.temp;
             }  
         }
+        */
+
+
+
+        var forLength = (hours.length < rowNodesAll[i].length) ? hours.length : rowNodesAll[i].length;
+
+        for(var j = 0; j < forLength; j++) {
+            var info = getSpecificForecastDataNumbers(monthDays[i], hours[j]);
+            //console.log("info: ", info);
+            //console.log("hours[j]: ", hours[j]);
+            //console.log("%c info.temp: " + info.temp, 'background: #222; color: #bada55');
+            if(j != 0) {
+                rowNodesAll[i][j].innerHTML = info.temp;
+            }  
+        }
     }
 
+    averageTemp();
+}
 
+function setHours(forecastData, monthDay) {
+    var hours = [];
 
-/*
+    monthDayData = forecastData[monthDay][0];
 
+    var indexInner = 0;
+    for (var hour in monthDayData) {
+        hours[indexInner] = hour;
+        indexInner++;
+    }
+
+    return hours;
+}
+
+function averageTemp() {
+    var monthDays = setMonthDays(forecastData);
+    //var hours = setHours(forecastData, monthDays[0]);
+
+    var data; 
+    var hours;
+    var arrayAll = [];
+    var arrayTemp = [];
     for(var i = 0; i < monthDays.length; i++) {
-        getSpecificForecastDataNumbers(monthDays[i], hours[j]);
+        if(i == 0) {
+            hours = setHours(forecastData, monthDays[i]);
+            if(hours.length == 1) {
+                arrayTemp[0] = forecastData[monthDays[i]][0][hours[0]][0];
+                arrayAll[0] = arrayTemp;
+            } else {
+                for(var h = 0; h < hours.length; h++) {
+                    if((h+1) < hours.length) {
+                        data1 = forecastData[monthDays[i]][0][hours[h]][0];
+                        data2 = forecastData[monthDays[i]][0][hours[h+1]][0];
+                        avg = Math.round((Number(data1.temp) + Number(data2.temp))/2);
+                        arrayTemp[h] = avg;
+                    }
+                }
+                arrayAll[0] = arrayTemp;
+                for(var g = 0; g < arrayTemp.length; g++) {
+                    console.log("arrayTemp[g]: ", arrayTemp[g]);
+                }
+            }
+        } else {
+            arrayTemp = [];
+            hours = setHours(forecastData, monthDays[i])
+            for(var h = 0; h < hours.length; h++) {
+                if(h > 1) {
+                    // hours 06, 09, 12, 15, 18, 21
+                    if((h+1) < hours.length) {
+                        data1 = forecastData[monthDays[i]][0][hours[h]][0];
+                        data2 = forecastData[monthDays[i]][0][hours[h+1]][0];
+                        avg = Math.round((Number(data1.temp) + Number(data2.temp))/2);
+                        arrayTemp[h] = avg;
+                    }
+
+                }
+            }
+            arrayAll[arrayAll.length-1] = arrayTemp;
+            console.log("new array");
+            for(var p = 0; p < arrayTemp.length; p++) {
+                    console.log("arrayTemp[p]: ", arrayTemp[p]);
+                }
+        }
     }
 
-    var specificData = forecastData[monthDay][0][hour][0];
-
-    var data = {
-        "temp": specificData.temp,
-        "clouds": specificData.clouds,
-        "wind": specificData.wind,
-        "weatherdesc": specificData.weatherdesc
+    for(var i = 0; i < arrayAll.length; i++) {
+        console.log("NEW arrayAll["+i+"]: ", arrayAll[i]);
+        for(var j = 0; j < arrayAll[i].length; j++) {
+            console.log("arrayAll["+i+"]["+j+"]: ", arrayAll[i][j]);
+        }
     }
-*/
-
-
-
-/*
-    var data = getSpecificForecastData(31, 18);
-    console.log("data: ", data);
-*/
 }

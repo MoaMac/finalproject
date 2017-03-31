@@ -2,24 +2,24 @@
  * Created by Administrator on 2017-03-30.
  */
 
-var forcastHours = ["00", "03", "06", "09", "12", "15", "18", "21"];
-var forcastData = null;
+var forecastHours = ["00", "03", "06", "09", "12", "15", "18", "21"];
+var forecastData = null;
 
 // FUNCTIONS
-function getSpecificForcastData(monthDay, hour) {
-    console.log("LOGGING FROM forcast.js METHOD getSpecificForcastData() START");
+function getSpecificForecastData(monthDay, hour) {
+    console.log("LOGGING FROM forecast.js METHOD getSpecificForecastData() START");
 
-    if (forcastData == null) {
-        console.log("LOG forcast.js getSpecificForcastData(...): ERROR! No forcast data saved.");
+    if (forecastData == null) {
+        console.log("LOG forecast.js getSpecificForecastData(...): ERROR! No forecast data saved.");
         return;
     }
 
     monthDay = "MD" + monthDay;
     hour = "H" + hour;
 
-    forcastData = JSON.parse(forcastData);
+    forecastData = JSON.parse(forecastData);
 
-    var specificData = forcastData[monthDay][0][hour][0];
+    var specificData = forecastData[monthDay][0][hour][0];
     var data = {
         "temp": specificData.temp,
         "clouds": specificData.clouds,
@@ -32,17 +32,17 @@ function getSpecificForcastData(monthDay, hour) {
     console.log("DATA WIND: ", data.wind);
     console.log("DATA WEATHER DESCRIPTION: ", data.weatherdesc);
 
-    console.log("LOGGING FROM forcast.js METHOD getSpecificForcastData() STOP");
+    console.log("LOGGING FROM forecast.js METHOD getSpecificForecastData() STOP");
     return data;
 }
 /* TEMP SAVE
- function getSpecificForcastData(monthDay, hour) {
- console.log("LOGGING FROM forcast.js METHOD getSpecificForcastData() START");
- //if(forcastData == null) { console.log("LOG forcast.js getSpecificForcastData(...): ERROR! No forcast data saved."); }
+ function getSpecificForecastData(monthDay, hour) {
+ console.log("LOGGING FROM forecast.js METHOD getSpecificForecastData() START");
+ //if(forecastData == null) { console.log("LOG forecast.js getSpecificForecastData(...): ERROR! No forecast data saved."); }
 
  monthDay = 30;
  hour = 15;
- forcastData = {
+ forecastData = {
  "30":[
  {
  "15": [
@@ -54,7 +54,7 @@ function getSpecificForcastData(monthDay, hour) {
  }
  ]
  }
- var correctDate = forcastData[monthDay][0];
+ var correctDate = forecastData[monthDay][0];
  console.log("correctDate: ", correctDate);
 
  var correctHour = correctDate[hour][0];
@@ -68,13 +68,13 @@ function getSpecificForcastData(monthDay, hour) {
  console.log("DATA TEMP: ", data.temp);
  console.log("DATA WIND: ", data.wind);
 
- console.log("LOGGING FROM forcast.js METHOD getSpecificForcastData() STOP");
+ console.log("LOGGING FROM forecast.js METHOD getSpecificForecastData() STOP");
  return data;
  }
  */
 
-function currentTimeForcast(coordinates) {
-    console.log("LOGGING FROM forcast.js METHOD currentTimeForcast() START");
+function currentTimeForecast(coordinates) {
+    console.log("LOGGING FROM forecast.js METHOD currentTimeForcast() START");
 
     var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + coordinates.lat + "&lon=" + coordinates.lon + "&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
     console.log("url: ", url);
@@ -99,11 +99,11 @@ function currentTimeForcast(coordinates) {
     console.log("Wind: ", wind, " m/s");
     console.log("Weather description: ", weatherMain, ", ", weatherDescription);
 
-    console.log("LOGGING FROM forcast.js METHOD currentTimeForcast() STOP");
+    console.log("LOGGING FROM forecast.js METHOD currentTimeForcast() STOP");
 }
 
-function testing5dayForcast(coordinates) {
-    console.log("LOGGING FROM forcast.js METHOD testing5dayForcast() START");
+function testing5dayForecast(coordinates) {
+    console.log("LOGGING FROM forecast.js METHOD testing5dayForecast() START");
     var xhttp = new XMLHttpRequest();
     var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + coordinates.lat + "&lon=" + coordinates.lon + "&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
     console.log("url: ", url);
@@ -175,9 +175,9 @@ function testing5dayForcast(coordinates) {
     }
 
     stringJson += "}]}";
-    forcastData = stringJson;
+    forecastData = stringJson;
 
-    console.log("forcastData: ", forcastData);
+    console.log("forecastData: ", forecastData);
 
     /*
      var utcSeconds = 1234567890;
@@ -185,5 +185,5 @@ function testing5dayForcast(coordinates) {
      d.setUTCSeconds(utcSeconds);
      */
 
-    console.log("LOGGING FROM forcast.js METHOD testing5dayForcast() STOP");
+    console.log("LOGGING FROM forecast.js METHOD testing5dayForecast() STOP");
 }

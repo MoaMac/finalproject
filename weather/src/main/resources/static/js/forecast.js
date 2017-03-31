@@ -1,11 +1,5 @@
-/**
- * Created by Administrator on 2017-03-30.
- */
-
-var forecastHours = ["00", "03", "06", "09", "12", "15", "18", "21"];
 var forecastData = null;
 
-// FUNCTIONS
 function getSpecificForecastData(monthDay, hour) {
     console.log("LOGGING FROM forecast.js METHOD getSpecificForecastData() START");
 
@@ -43,73 +37,8 @@ function getSpecificForecastData(monthDay, hour) {
     console.log("LOGGING FROM forecast.js METHOD getSpecificForecastData() STOP");
     return data;
 }
-/* TEMP SAVE
- function getSpecificForecastData(monthDay, hour) {
- console.log("LOGGING FROM forecast.js METHOD getSpecificForecastData() START");
- //if(forecastData == null) { console.log("LOG forecast.js getSpecificForecastData(...): ERROR! No forecast data saved."); }
 
- monthDay = 30;
- hour = 15;
- forecastData = {
- "30":[
- {
- "15": [
- {"temp": "1", "wind":"4.3"}
- ],
- "18": [
- {"temp": "5", "wind":"2.1"}
- ]
- }
- ]
- }
- var correctDate = forecastData[monthDay][0];
- console.log("correctDate: ", correctDate);
-
- var correctHour = correctDate[hour][0];
- console.log("correctHour: ", correctHour);
-
- var data = {
- "temp": correctHour.temp,
- "wind": correctHour.wind
- }
-
- console.log("DATA TEMP: ", data.temp);
- console.log("DATA WIND: ", data.wind);
-
- console.log("LOGGING FROM forecast.js METHOD getSpecificForecastData() STOP");
- return data;
- }
- */
-
-function currentTimeForecast(coordinates) {
-    console.log("LOGGING FROM forecast.js METHOD currentTimeForecast() START");
-
-    var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + coordinates.lat + "&lon=" + coordinates.lon + "&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
-    console.log("url: ", url);
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", url, false);
-    xhttp.send();
-
-    var data = JSON.parse(xhttp.responseText);
-    var cityCountry = data.city.country;
-    var cityName = data.city.name;
-    var listItemCurrentTime = data.list[0];
-    var temp = listItemCurrentTime.main.temp;
-    var clouds = listItemCurrentTime.clouds.all;
-    var wind = listItemCurrentTime.wind.speed;
-    var weatherMain = listItemCurrentTime.weather[0].main;
-    var weatherDescription = listItemCurrentTime.weather[0].description;
-
-    console.log("City, Country: ", cityName, ", ", cityCountry);
-    console.log("Temp: ", temp, " C");
-    console.log("Clouds: ", clouds, " %");
-    console.log("Wind: ", wind, " m/s");
-    console.log("Weather description: ", weatherMain, ", ", weatherDescription);
-
-    console.log("LOGGING FROM forecast.js METHOD currentTimeForecast() STOP");
-}
-
+/* TEST FUNCTIONS */
 function testing5dayForecast(coordinates) {
     console.log("LOGGING FROM forecast.js METHOD testing5dayForecast() START");
     var xhttp = new XMLHttpRequest();
@@ -186,12 +115,5 @@ function testing5dayForecast(coordinates) {
     forecastData = stringJson;
 
     console.log("forecastData: ", forecastData);
-
-    /*
-     var utcSeconds = 1234567890;
-     var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
-     d.setUTCSeconds(utcSeconds);
-     */
-
     console.log("LOGGING FROM forecast.js METHOD testing5dayForecast() STOP");
 }

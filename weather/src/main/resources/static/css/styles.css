@@ -124,9 +124,10 @@ img {
     width: 39.4%;
 }
 .span_1_of_5 {
+    color: black;
     width: 15.5%;
     height: 15.5%;
-    background-color: turquoise;
+    border: 1px solid black;
 }
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */

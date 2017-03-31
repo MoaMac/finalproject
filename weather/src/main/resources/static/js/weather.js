@@ -122,38 +122,56 @@ function getRowNodes(rowNumber) {
     return nodesArray;
 }
 
-function setFiveDayForecast(forecastData) {
+function setMonthDays(forecastData) {
     var monthDays = [];
     var index = 0;
     for (var monthDay in forecastData) {
         monthDays[index] = monthDay;
         index++;
-        console.log("monthDay: " + monthDay);
+        //console.log("monthDay: " + monthDay);
         // console.log("Value: " + forecastData[monthDay]);
     }
+    return monthDays;
+}
 
+function setFiveDayForecast(forecastData) {
+    console.log("forecastData: ", forecastData);
+    var monthDays = setMonthDays(forecastData);
+
+    var monthDayData;
     var rowNodesAll = [getRowNodes(2), getRowNodes(3), getRowNodes(4), getRowNodes(5), getRowNodes(6)];
-
     for(var i = 0; i < rowNodesAll.length; i++) {
-        console.log("### rowNodesAll[i]: ", rowNodesAll[i]);
-        
         rowNodesAll[i][0].innerHTML = monthDays[i];
+        monthDayData = forecastData[monthDays[i]][0];
 
-        for(var j = 0; j < rowNodesAll[i].length; j++) {
-            console.log("# rowNodesAll[i][j]: ", rowNodesAll[i][j]);
+        var hours = [];
+        var indexInner = 0;
+        for (var hour in monthDayData) {
+            hours[indexInner] = hour;
+            indexInner++;
+            console.log("hour: " + hour);
+            // console.log("Value: " + monthDayData[hour]);
+        }
+        indexInner = 0;
+
+        var forLength = (hours.length < rowNodesAll[i].length) ? hours.length : rowNodesAll[i].length;
+
+        for(var j = 1; j < forLength; j++) {
+            var info = getSpecificForecastDataNumbers(monthDays[i], hours[j]);
+            //console.log("%c info.temp: " + info.temp, 'background: #222; color: #bada55');
+            rowNodesAll[i][j].innerHTML = info.temp;
         }
     }
 
-    //nodesArray[4].innerHTML = data.temp;
+
 
 /*
-    var specificData;
-    try {
-        specificData = forecastData[monthDay][0][hour][0];
-    } catch(err) {
-        console.log("ERROR: ", err.message);
-        return;
+
+    for(var i = 0; i < monthDays.length; i++) {
+        getSpecificForecastDataNumbers(monthDays[i], hours[j]);
     }
+
+    var specificData = forecastData[monthDay][0][hour][0];
 
     var data = {
         "temp": specificData.temp,
@@ -161,12 +179,12 @@ function setFiveDayForecast(forecastData) {
         "wind": specificData.wind,
         "weatherdesc": specificData.weatherdesc
     }
-    */
+*/
 
 
 
 /*
     var data = getSpecificForecastData(31, 18);
     console.log("data: ", data);
-    */
+*/
 }

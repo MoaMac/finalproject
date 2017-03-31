@@ -38,6 +38,36 @@ function getSpecificForecastData(monthDay, hour) {
     return data;
 }
 
+function getSpecificForecastDataNumbers(monthDay, hour) {
+    console.log("LOGGING FROM forecast.js METHOD getSpecificForecastDataNumbers() START");
+
+    if (forecastData == null) {
+        console.log("LOG forecast.js getSpecificForecastDataNumbers(...): ERROR! No forecast data saved.");
+        return;
+    }
+
+    monthDay = monthDay;
+    hour = hour;
+
+    var specificData;
+    try {
+        specificData = forecastData[monthDay][0][hour][0];
+    } catch(err) {
+        console.log("ERROR: ", err.message);
+        return;
+    }
+
+    var data = {
+        "temp": specificData.temp,
+        "clouds": specificData.clouds,
+        "wind": specificData.wind,
+        "weatherdesc": specificData.weatherdesc
+    }
+
+    console.log("LOGGING FROM forecast.js METHOD getSpecificForecastDataNumbers() STOP");
+    return data;
+}
+
 /* TEST FUNCTIONS */
 function testing5dayForecast(coordinates) {
     console.log("LOGGING FROM forecast.js METHOD testing5dayForecast() START");

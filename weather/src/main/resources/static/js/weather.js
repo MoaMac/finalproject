@@ -200,59 +200,41 @@ function setHours(forecastData, monthDay) {
 
 function averageTemp() {
     var monthDays = setMonthDays(forecastData);
-    //var hours = setHours(forecastData, monthDays[0]);
 
     var data; 
     var hours;
     var arrayAll = [];
-    var arrayTemp = [];
-    for(var i = 0; i < monthDays.length; i++) {
-        if(i == 0) {
-            hours = setHours(forecastData, monthDays[i]);
-            if(hours.length == 1) {
-                arrayTemp[0] = forecastData[monthDays[i]][0][hours[0]][0];
-                arrayAll[0] = arrayTemp;
-            } else {
-                for(var h = 0; h < hours.length; h++) {
-                    if((h+1) < hours.length) {
-                        data1 = forecastData[monthDays[i]][0][hours[h]][0];
-                        data2 = forecastData[monthDays[i]][0][hours[h+1]][0];
-                        avg = Math.round((Number(data1.temp) + Number(data2.temp))/2);
-                        arrayTemp[h] = avg;
-                    }
-                }
-                arrayAll[0] = arrayTemp;
-                for(var g = 0; g < arrayTemp.length; g++) {
-                    console.log("arrayTemp[g]: ", arrayTemp[g]);
-                }
-            }
-        } else {
-            arrayTemp = [];
-            hours = setHours(forecastData, monthDays[i])
-            for(var h = 0; h < hours.length; h++) {
-                if(h > 1) {
-                    // hours 06, 09, 12, 15, 18, 21
-                    if((h+1) < hours.length) {
-                        data1 = forecastData[monthDays[i]][0][hours[h]][0];
-                        data2 = forecastData[monthDays[i]][0][hours[h+1]][0];
-                        avg = Math.round((Number(data1.temp) + Number(data2.temp))/2);
-                        arrayTemp[h] = avg;
-                    }
+    var arrayDay = [];
 
-                }
-            }
-            arrayAll[arrayAll.length-1] = arrayTemp;
-            console.log("new array");
-            for(var p = 0; p < arrayTemp.length; p++) {
-                    console.log("arrayTemp[p]: ", arrayTemp[p]);
-                }
+    var md = 0;
+    hours = setHours(forecastData, monthDays[md]);
+    for(var h = 0; h < hours.length; h++) {
+        if((h+1) < hours.length) {
+            data1 = forecastData[monthDays[md]][0][hours[h]][0];
+            data2 = forecastData[monthDays[md]][0][hours[h+1]][0];
+            avg = Math.round((Number(data1.temp) + Number(data2.temp))/2);
+            arrayDay[h] = avg;
         }
     }
 
-    for(var i = 0; i < arrayAll.length; i++) {
-        console.log("NEW arrayAll["+i+"]: ", arrayAll[i]);
-        for(var j = 0; j < arrayAll[i].length; j++) {
-            console.log("arrayAll["+i+"]["+j+"]: ", arrayAll[i][j]);
-        }
+    arrayAll[0] = arrayDay;
+    arrayDay = [];
+    for(md = 2; md < monthDays.length; md++) {
+        hours = setHours(forecastData, monthDays[md]);
+            for(var h = 0; h < hours.length; h++) {
+                if(h > 1) {
+                    if((h+1) < hours.length) {
+                        data1 = forecastData[monthDays[md]][0][hours[h]][0];
+                        data2 = forecastData[monthDays[md]][0][hours[h+1]][0];
+                        avg = Math.round((Number(data1.temp) + Number(data2.temp))/2);
+                        arrayDay[h-2] = avg;
+                    }
+                }
+            }
+            arrayAll[arrayAll.length] = arrayDay;
+            arrayDay = [];
+    }
+    for(var a = 0; a < arrayAll.length; a++) {
+        console.log("arrayAll["+a+"]: ", arrayAll[a]);
     }
 }

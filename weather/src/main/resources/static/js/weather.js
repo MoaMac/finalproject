@@ -35,7 +35,6 @@ function loadLocation(coordinates) {
     xhttp.send();
 
     var data = JSON.parse(xhttp.responseText);
-
     // LOCATION INFORMATION
     var cityCountry = data.city.country;
     var cityName = data.city.name;
@@ -43,6 +42,7 @@ function loadLocation(coordinates) {
     // WEATHER INFORMATION
     var list = data.list;
     var now = new Date(0); // The 0 there is the key, which sets the date to the epoch
+    var dt;
     var monthDay = -1;
     var hour;
     var temp;
@@ -55,8 +55,9 @@ function loadLocation(coordinates) {
     var newMonthDay = false;
     var firstDay = true;
     for (var i = 0; i < list.length; i++) {
+        dt = list[i].dt;
         now = new Date(0);
-        now.setUTCSeconds(list[i].dt);
+        now.setUTCSeconds(dt);
         if (monthDay != -1) {
             if (monthDay != now.getUTCDate()) {
                 newMonthDay = true;
@@ -82,14 +83,16 @@ function loadLocation(coordinates) {
             }
 
             stringJson += "\"MD" + monthDay + "\":[{\"H" + hour
-                + "\":[{\"temp\":\"" + temp
+                + "\":[{\"dt\":\"" + dt
+                + "\",\"temp\":\"" + temp
                 + "\",\"clouds\":\"" + clouds
                 + "\",\"wind\":\"" + wind
                 + "\",\"weathersum\":\"" + weathersum
                 + "\",\"weatherdesc\":\"" + weatherdesc + "\"}]";
         } else {
             stringJson += ", \"H" + hour
-                + "\":[{\"temp\":\"" + temp
+                + "\":[{\"dt\":\"" + dt
+                + "\",\"temp\":\"" + temp
                 + "\",\"clouds\":\"" + clouds
                 + "\",\"wind\":\"" + wind
                 + "\",\"weathersum\":\"" + weathersum
@@ -138,14 +141,92 @@ function setMonthDays(forecastData) {
     return monthDays;
 }
 
+function getDay(date) {
+    var weekDay = date.getUTCDay();
+    var month = date.getUTCMonth();
+    var monthDay = date.getUTCDate();
+
+    switch (weekDay) {
+        case 0:
+            weekDay = "Sunday";
+            break;
+        case 1:
+            weekDay = "Monday";
+            break;
+        case 2:
+            weekDay = "Tuesday";
+            break;
+        case 3:
+            weekDay = "Wednesday";
+            break;
+        case 4:
+            weekDay = "Thursday";
+            break;
+        case 5:
+            weekDay = "Friday";
+            break;
+        case 6:
+            weekDay = "Saturday";
+            break;
+    }
+
+    switch (month) {
+        case 0:
+            month = "January";
+            break;
+        case 1:
+            month = "February";
+            break;
+        case 2:
+            month = "March";
+            break;
+        case 3:
+            month = "April";
+            break;
+        case 4:
+            month = "May";
+            break;
+        case 5:
+            month = "June";
+            break;
+        case 6:
+            month = "July";
+            break;
+        case 7:
+            month = "August";
+            break;
+        case 8:
+            month = "September";
+            break;
+        case 9:
+            month = "October";
+            break;
+        case 10:
+            month = "November";
+            break;
+        case 11:
+            month = "December";
+            break;
+        default:
+            month = "[MONTH NOT SET]";
+            break;
+    }
+
+    return weekDay + ", " + monthDay + " " + month;
+}
+
 function setFiveDayForecast(forecastData) {
     console.log("forecastData: ", forecastData);
     var monthDays = setMonthDays(forecastData);
 
+    var date = new Date(0);
+
     var monthDayData;
     rowNodesAll = [getRowNodes(2), getRowNodes(3), getRowNodes(4), getRowNodes(5), getRowNodes(6)];
     for(var i = 0; i < rowNodesAll.length; i++) {
-        rowNodesAll[i][0].innerHTML = monthDays[i];
+        date = new Date(0);
+        date.setUTCSeconds(forecastData[monthDays[i]][0]["H21"][0].dt);
+        rowNodesAll[i][0].innerHTML = getDay(date);
         monthDayData = forecastData[monthDays[i]][0];
 
         var hours = [];

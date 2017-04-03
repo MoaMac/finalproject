@@ -5,6 +5,24 @@ var img4;
 var img5;
 var message;
 
+function getTempImage(temp) {
+    if (temp < -10) {
+        return "img/033-weather-1.svg";
+    } else if (-10 < temp && temp <= 0) {
+        return "img/042-snowflake.svg" 
+    } else if (0 < temp && temp <=5) {
+        return "img/040-windy.svg";
+    } else if (5 < temp && temp <= 10) {
+        return "img/048-cloud.svg";
+    } else if (10 < temp && temp < 17) {
+        return "img/045-rainbow.svg";
+    } else if (17 < temp && temp < 23) {
+        return "img/041-sun.svg"; 
+    } else if (23< temp && temp < 40) {
+        return "img/032-sea.svg"; 
+    }
+}
+
 function transmute(temp){
 // if (rain === 0) {
 // if really cold
@@ -38,7 +56,7 @@ function transmute(temp){
     }
 
 
-    if (5 < temp && temp < 10) {
+    if (5 < temp && temp <= 10) {
         img1 =  "img/048-cloud.svg";//Cloud
         img2 = "img2/006-jacket.svg";//Jacka
         img3 = "img/028-fashion.svg"; //Keps

@@ -216,15 +216,17 @@ function setaFiveDayForecastDataInHTML(arrayAll) {
     var todayArray = arrayAll[row];
     var offset = 5 - todayArray.length;
     for(var d = 0; d < todayArray.length; d++) {
-        rowNodesAll[row][d+1+offset].innerHTML = generateInnerHTML(todayArray[d], "img/048-cloud.svg");
+        rowNodesAll[row][d+1+offset].innerHTML = generateInnerHTML(todayArray[d], getTempImage(todayArray[d]));
         rowNodesAll[row][d+1+offset].style.backgroundColor = "#eeeeee";
+        console.log("getTempImage("+todayArray[d]+"): ", getTempImage(todayArray[d]));
     }
 
     // SECOND+ ROWS, always full
     for(var a = 1; a < arrayAll.length; a++) {
         for(var d = 0; d < arrayAll[a].length; d++) {
-            rowNodesAll[a][d+1].innerHTML = generateInnerHTML(arrayAll[a][d], "img/046-cloud-1.svg");
+            rowNodesAll[a][d+1].innerHTML = generateInnerHTML(arrayAll[a][d], getTempImage(arrayAll[a][d]));
             rowNodesAll[a][d+1].style.backgroundColor = "#eeeeee";
+        console.log("getTempImage("+arrayAll[a][d]+"): ", getTempImage(arrayAll[a][d]));
         }
     }
 }

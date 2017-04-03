@@ -5,7 +5,26 @@ var img4;
 var img5;
 var message;
 
-function getTempImage(temp) {
+function getTempImage(temp, weather) {
+    console.log("temp: ", temp, ", weather: ", weather);
+    switch (weather) {
+        case "Clear":
+            return "img/041-sun.svg";
+            break;
+        case "Rain":
+            return "img/044-rain.svg";
+            break;
+        case "Clouds":
+            return "img/048-cloud.svg";
+            break;
+        case "Snow":
+            return "img/042-snowflake.svg"
+            break;
+        default:
+            return "img/pool-eight-ball.svg";
+            break;
+    }
+    /*
     if (temp < -10) {
         return "img/033-weather-1.svg";
     } else if (-10 < temp && temp <= 0) {
@@ -21,6 +40,7 @@ function getTempImage(temp) {
     } else if (23< temp && temp < 40) {
         return "img/032-sea.svg"; 
     }
+    */
 }
 
 function transmute(temp){

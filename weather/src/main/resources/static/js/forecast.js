@@ -26,12 +26,14 @@ function getSpecificForecastData(monthDay, hour) {
         "temp": specificData.temp,
         "clouds": specificData.clouds,
         "wind": specificData.wind,
+        "weathersum": specificData.weathersum,
         "weatherdesc": specificData.weatherdesc
     }
 
     console.log("DATA TEMP: ", data.temp);
     console.log("DATA CLOUDS: ", data.clouds);
     console.log("DATA WIND: ", data.wind);
+    console.log("DATA WEATHER SUM: ", data.weathersum);
     console.log("DATA WEATHER DESCRIPTION: ", data.weatherdesc);
 
     console.log("LOGGING FROM forecast.js METHOD getSpecificForecastData() STOP");
@@ -61,6 +63,7 @@ function getSpecificForecastDataNumbers(monthDay, hour) {
         "temp": specificData.temp,
         "clouds": specificData.clouds,
         "wind": specificData.wind,
+        "weahtersum": specificData.weahtersum,
         "weatherdesc": specificData.weatherdesc
     }
 
@@ -94,7 +97,8 @@ function testing5dayForecast(coordinates) {
     var temp;
     var clouds;
     var wind;
-    var weather;
+    var weathersum;
+    var weatherdesc;
 
     var stringJson = null;
     var newMonthDay = false;
@@ -115,7 +119,8 @@ function testing5dayForecast(coordinates) {
         temp = list[i].main.temp;
         clouds = list[i].clouds.all;
         wind = list[i].wind.speed;
-        weather = list[i].weather[0].main + ", " + list[i].weather[0].description;
+        weathersum = list[i].weather[0].main;
+        weatherdesc = list[i].weather[0].description;
 
         console.log("Month day: " + monthDay, " hour: ", hour, ": ", temp, "C ", clouds, "% ", wind, " m/s ", weather);
 
@@ -131,19 +136,21 @@ function testing5dayForecast(coordinates) {
                 + "\":[{\"temp\":\"" + temp
                 + "\",\"clouds\":\"" + clouds
                 + "\",\"wind\":\"" + wind
-                + "\",\"weatherdesc\":\"" + weather + "\"}]";
+                + "\",\"weathersum\":\"" + weathersum
+                + "\",\"weatherdesc\":\"" + weatherdesc + "\"}]";
         } else {
             stringJson += ", \"H" + hour
                 + "\":[{\"temp\":\"" + temp
                 + "\",\"clouds\":\"" + clouds
                 + "\",\"wind\":\"" + wind
-                + "\",\"weatherdesc\":\"" + weather + "\"}]";
+                + "\",\"weathersum\":\"" + weathersum
+                + "\",\"weatherdesc\":\"" + weatherdesc + "\"}]";
         }
     }
 
     stringJson += "}]}";
     forecastData = stringJson;
 
-    console.log("forecastData: ", forecastData);
+    console.log("THIS forecastData: ", forecastData);
     console.log("LOGGING FROM forecast.js METHOD testing5dayForecast() STOP");
 }

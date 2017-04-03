@@ -48,7 +48,8 @@ function loadLocation(coordinates) {
     var temp;
     var clouds;
     var wind;
-    var weather;
+    var weathersum;
+    var weatherdesc;
 
     var stringJson = null;
     var newMonthDay = false;
@@ -69,7 +70,8 @@ function loadLocation(coordinates) {
         temp = list[i].main.temp;
         clouds = list[i].clouds.all;
         wind = list[i].wind.speed;
-        weather = list[i].weather[0].main + ", " + list[i].weather[0].description;
+        weathersum = list[i].weather[0].main;
+        weatherdesc = list[i].weather[0].description;
 
         if (newMonthDay || firstDay) {
             firstDay = false;
@@ -83,13 +85,15 @@ function loadLocation(coordinates) {
                 + "\":[{\"temp\":\"" + temp
                 + "\",\"clouds\":\"" + clouds
                 + "\",\"wind\":\"" + wind
-                + "\",\"weatherdesc\":\"" + weather + "\"}]";
+                + "\",\"weathersum\":\"" + weathersum
+                + "\",\"weatherdesc\":\"" + weatherdesc + "\"}]";
         } else {
             stringJson += ", \"H" + hour
                 + "\":[{\"temp\":\"" + temp
                 + "\",\"clouds\":\"" + clouds
                 + "\",\"wind\":\"" + wind
-                + "\",\"weatherdesc\":\"" + weather + "\"}]";
+                + "\",\"weathersum\":\"" + weathersum
+                + "\",\"weatherdesc\":\"" + weatherdesc + "\"}]";
         }
 
         if(i == 0) {
@@ -135,7 +139,7 @@ function setMonthDays(forecastData) {
 }
 
 function setFiveDayForecast(forecastData) {
-    console.log("forecastData: ", forecastData);
+    console.log("THIS is forecastData: ", forecastData);
     var monthDays = setMonthDays(forecastData);
 
     var monthDayData;
@@ -178,6 +182,9 @@ function averageTemp() {
     var arrayAll = [];
     var arrayDay = [];
 
+    var arrayAllWeather = [];
+    var arrayDayWeather = [];
+
     var md = 0;
     hours = setHours(forecastData, monthDays[md]);
     for(var h = 0; h < hours.length; h++) {
@@ -186,8 +193,12 @@ function averageTemp() {
             data2 = forecastData[monthDays[md]][0][hours[h+1]][0];
             avg = Math.round((Number(data1.temp) + Number(data2.temp))/2);
             arrayDay[h] = avg;
+            arrayDayWeather[h] = data1.weathersum;
         }
     }
+
+    arrayAllWeather[0] = arrayDayWeather;
+    arrayDayWeather = [];
 
     arrayAll[0] = arrayDay;
     arrayDay = [];
@@ -200,33 +211,37 @@ function averageTemp() {
                         data2 = forecastData[monthDays[md]][0][hours[h+1]][0];
                         avg = Math.round((Number(data1.temp) + Number(data2.temp))/2);
                         arrayDay[h-2] = avg;
+                        arrayDayWeather[h-2] = data1.weathersum;
                     }
                 }
             }
+
+            arrayAllWeather[arrayAllWeather.length] = arrayDayWeather;
+            arrayDayWeather = [];
+
             arrayAll[arrayAll.length] = arrayDay;
             arrayDay = [];
     }
 
-    setaFiveDayForecastDataInHTML(arrayAll);
+    setaFiveDayForecastDataInHTML(arrayAll, arrayAllWeather);
 }
 
-function setaFiveDayForecastDataInHTML(arrayAll) {
+function setaFiveDayForecastDataInHTML(arrayAll, arrayAllWeather) {
     // FIRST ROW, not always full
     var row = 0;
     var todayArray = arrayAll[row];
+    var todayArrayWeather = arrayAllWeather[row];
     var offset = 5 - todayArray.length;
     for(var d = 0; d < todayArray.length; d++) {
-        rowNodesAll[row][d+1+offset].innerHTML = generateInnerHTML(todayArray[d], getTempImage(todayArray[d]));
+        rowNodesAll[row][d+1+offset].innerHTML = generateInnerHTML(todayArray[d], getTempImage(todayArray[d], todayArrayWeather[d]));
         rowNodesAll[row][d+1+offset].style.backgroundColor = "#eeeeee";
-        console.log("getTempImage("+todayArray[d]+"): ", getTempImage(todayArray[d]));
     }
 
     // SECOND+ ROWS, always full
     for(var a = 1; a < arrayAll.length; a++) {
         for(var d = 0; d < arrayAll[a].length; d++) {
-            rowNodesAll[a][d+1].innerHTML = generateInnerHTML(arrayAll[a][d], getTempImage(arrayAll[a][d]));
+            rowNodesAll[a][d+1].innerHTML = generateInnerHTML(arrayAll[a][d], getTempImage(arrayAll[a][d], arrayAllWeather[a][d]));
             rowNodesAll[a][d+1].style.backgroundColor = "#eeeeee";
-        console.log("getTempImage("+arrayAll[a][d]+"): ", getTempImage(arrayAll[a][d]));
         }
     }
 }

@@ -102,7 +102,7 @@ function loadLocation(coordinates) {
             document.getElementById("clouds").innerHTML = "Cloudiness: " + clouds + " %";
             document.getElementById("wind").innerHTML = "Wind speed: " + wind + " m/s";
 
-            transmute(temp);
+            transmute(temp, weathersum);
         }
         //console.log("Month day: " + monthDay, " hour: ", hour, ": ", temp, "C ", clouds, "% ", wind, " m/s ", weather);
     }
@@ -139,7 +139,7 @@ function setMonthDays(forecastData) {
 }
 
 function setFiveDayForecast(forecastData) {
-    console.log("THIS is forecastData: ", forecastData);
+    console.log("forecastData: ", forecastData);
     var monthDays = setMonthDays(forecastData);
 
     var monthDayData;

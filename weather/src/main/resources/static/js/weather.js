@@ -138,6 +138,7 @@ function setMonthDays(forecastData) {
 function setFiveDayForecast(forecastData) {
     console.log("forecastData: ", forecastData);
     var monthDays = setMonthDays(forecastData);
+    console.log("monthDays: ", monthDays);
 
     var monthDayData;
     rowNodesAll = [getRowNodes(2), getRowNodes(3), getRowNodes(4), getRowNodes(5), getRowNodes(6)];
@@ -152,34 +153,6 @@ function setFiveDayForecast(forecastData) {
             indexInner++;
         }
         indexInner = 0;
-
-/*
-        var forLength = (hours.length < rowNodesAll[i].length) ? hours.length : rowNodesAll[i].length;
-
-        for(var j = 0; j < forLength; j++) {
-            var info = getSpecificForecastDataNumbers(monthDays[i], hours[j]);
-            console.log("info: ", info);
-            console.log("hours[j]: ", hours[j]);
-            //console.log("%c info.temp: " + info.temp, 'background: #222; color: #bada55');
-            if(j != 0) {
-                rowNodesAll[i][j].innerHTML = info.temp;
-            }  
-        }
-        */
-
-
-
-        var forLength = (hours.length < rowNodesAll[i].length) ? hours.length : rowNodesAll[i].length;
-
-        for(var j = 0; j < forLength; j++) {
-            var info = getSpecificForecastDataNumbers(monthDays[i], hours[j]);
-            //console.log("info: ", info);
-            //console.log("hours[j]: ", hours[j]);
-            //console.log("%c info.temp: " + info.temp, 'background: #222; color: #bada55');
-            if(j != 0) {
-                rowNodesAll[i][j].innerHTML = info.temp;
-            }  
-        }
     }
 
     averageTemp();
@@ -220,7 +193,7 @@ function averageTemp() {
 
     arrayAll[0] = arrayDay;
     arrayDay = [];
-    for(md = 2; md < monthDays.length; md++) {
+    for(md = 1; md < monthDays.length; md++) {
         hours = setHours(forecastData, monthDays[md]);
             for(var h = 0; h < hours.length; h++) {
                 if(h > 1) {
@@ -237,6 +210,7 @@ function averageTemp() {
     }
 
     // FIRST ROW, not always full
+    console.log("arrayAll: ", arrayAll);
     var row = 0;
     var todayArray = arrayAll[row];
     var offset = 5 - todayArray.length;

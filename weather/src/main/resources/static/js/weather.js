@@ -1,4 +1,5 @@
 // setTimeout(function timeOutFunction() { console.log("timeOutFunction()"); }, 50);
+var rowNodesAll;
 
 function loadStaticDestiniation(city) {
     console.log("*** City: " + city);
@@ -139,7 +140,7 @@ function setFiveDayForecast(forecastData) {
     var monthDays = setMonthDays(forecastData);
 
     var monthDayData;
-    var rowNodesAll = [getRowNodes(2), getRowNodes(3), getRowNodes(4), getRowNodes(5), getRowNodes(6)];
+    rowNodesAll = [getRowNodes(2), getRowNodes(3), getRowNodes(4), getRowNodes(5), getRowNodes(6)];
     for(var i = 0; i < rowNodesAll.length; i++) {
         rowNodesAll[i][0].innerHTML = monthDays[i];
         monthDayData = forecastData[monthDays[i]][0];
@@ -234,7 +235,21 @@ function averageTemp() {
             arrayAll[arrayAll.length] = arrayDay;
             arrayDay = [];
     }
-    for(var a = 0; a < arrayAll.length; a++) {
-        console.log("arrayAll["+a+"]: ", arrayAll[a]);
+
+    // FIRST ROW, not always full
+    var row = 0;
+    var todayArray = arrayAll[row];
+    var offset = 5 - todayArray.length;
+    for(var d = 0; d < todayArray.length; d++) {
+        rowNodesAll[row][d+1+offset].innerHTML = todayArray[d];
+        rowNodesAll[row][d+1+offset].style.backgroundColor = "#eeeeee";
+    }
+
+    // SECOND+ ROWS, always full
+    for(var a = 1; a < arrayAll.length; a++) {
+        for(var d = 0; d < arrayAll[a].length; d++) {
+            rowNodesAll[a][d+1].innerHTML = arrayAll[a][d];
+            rowNodesAll[a][d+1].style.backgroundColor = "#eeeeee";
+        }
     }
 }

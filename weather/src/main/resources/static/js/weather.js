@@ -100,7 +100,6 @@ function loadLocation(coordinates) {
 
             transmute(temp);
         }
-            
         //console.log("Month day: " + monthDay, " hour: ", hour, ": ", temp, "C ", clouds, "% ", wind, " m/s ", weather);
     }
 
@@ -138,7 +137,6 @@ function setMonthDays(forecastData) {
 function setFiveDayForecast(forecastData) {
     console.log("forecastData: ", forecastData);
     var monthDays = setMonthDays(forecastData);
-    console.log("monthDays: ", monthDays);
 
     var monthDayData;
     rowNodesAll = [getRowNodes(2), getRowNodes(3), getRowNodes(4), getRowNodes(5), getRowNodes(6)];
@@ -209,21 +207,28 @@ function averageTemp() {
             arrayDay = [];
     }
 
+    setaFiveDayForecastDataInHTML(arrayAll);
+}
+
+function setaFiveDayForecastDataInHTML(arrayAll) {
     // FIRST ROW, not always full
-    console.log("arrayAll: ", arrayAll);
     var row = 0;
     var todayArray = arrayAll[row];
     var offset = 5 - todayArray.length;
     for(var d = 0; d < todayArray.length; d++) {
-        rowNodesAll[row][d+1+offset].innerHTML = todayArray[d];
+        rowNodesAll[row][d+1+offset].innerHTML = generateInnerHTML(todayArray[d], "img/048-cloud.svg");
         rowNodesAll[row][d+1+offset].style.backgroundColor = "#eeeeee";
     }
 
     // SECOND+ ROWS, always full
     for(var a = 1; a < arrayAll.length; a++) {
         for(var d = 0; d < arrayAll[a].length; d++) {
-            rowNodesAll[a][d+1].innerHTML = arrayAll[a][d];
+            rowNodesAll[a][d+1].innerHTML = generateInnerHTML(arrayAll[a][d], "img/046-cloud-1.svg");
             rowNodesAll[a][d+1].style.backgroundColor = "#eeeeee";
         }
     }
+}
+
+function generateInnerHTML(text, imgres) {
+    return "<div id='avgicon'><img id='image' src='"+imgres+"'/><p id='text'>"+text+"</p></div>";
 }

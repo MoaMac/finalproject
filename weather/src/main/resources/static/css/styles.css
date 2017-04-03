@@ -121,12 +121,15 @@ img {
     width: 59.6%;
 }
 .span_2_of_5 {
-    width: 39.4%;
+    color: black;
+    width: 15.5%;
+    height: 5%;
+    border: 1px solid black;
 }
 .span_1_of_5 {
     color: black;
     width: 15.5%;
-    height: 15.5%;
+    height: 7%;
     border: 1px solid black;
 }
 
@@ -135,3 +138,45 @@ img {
     .col {  margin: 1% 0 1% 0%; }
     .span_1_of_5, .span_2_of_5, .span_3_of_5, .span_4_of_5, .span_5_of_5 { width: 100%; }
 }
+
+#avgicon {
+    height: 50%;
+    width: 50%;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#image {
+    position:relative;
+    margin: 0;
+    padding: 0;
+}
+
+#text {
+    font-weight: bold;
+    color: #FFFF00;
+    text-shadow: 1px 1px #000, -0.5px -0.5px #FFF;
+
+    position:relative;
+    margin: 0;
+    padding: 0;
+
+    top: -32px;
+    /*
+    color: #FFFF00;
+    text-shadow: 1px 1px #000, -1px -1px #FFF;
+    font-weight: bold;
+
+
+    position:absolute;
+    text-align:center;
+
+    width: 100%;
+    height: 100%;
+    */
+
+}
+
+
+    /*background-color:rgba(0, 0, 0, 1);*/

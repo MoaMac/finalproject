@@ -30,7 +30,7 @@ function transmute(temp){
 // if just above zero and 5
     if (0 < temp && temp <=5) {
         img1 = "img/040-windy.svg"; //Windy
-        img2 = "img3/004-boot.svg";  //Boots vid skask
+        img2 = "img3/004-boot.svg";  //Boots vid slask
         img3 = "img3/006-coat.svg"; //Kappa
         img4 = "img3/005-winter-hat.svg"; //Mössa
         img5 = "img3/002-clothes.svg"; //Handskar

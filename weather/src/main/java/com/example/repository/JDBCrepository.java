@@ -1,28 +1,22 @@
 package com.example.repository;
 
-import com.example.Message;
 import com.example.RepositoryInterface;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import org.mockito.stubbing.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class JDBCrepository implements RepositoryInterface {
 
-@Autowired
-private DataSource dataSource;
+    @Autowired
+    private DataSource dataSource;
 
     @Override
     public void addLog(String Country, String City) throws Exception {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("INSERT INTO Log(Country, CityName) VALUES (?,?) ", new String[] {"id"})) {
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO Log(Country, CityName) VALUES (?,?) ", new String[]{"id"})) {
             ps.setString(1, Country);
             ps.setString(2, City);
             ps.executeUpdate();

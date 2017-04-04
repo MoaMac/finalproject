@@ -28,13 +28,14 @@ function loadStaticDestiniation(city) {
     }
 }
 
-function loadLocation(coordinates) {
+function loadLocation(lat, lon) {
     var xhttp = new XMLHttpRequest();
-    var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + coordinates.lat + "&lon=" + coordinates.lon + "&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
+    var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&APPID=30ae9cbe5da2955545ae212e144318e2&units=metric";
     xhttp.open("GET", url, false);
     xhttp.send();
 
     var data = JSON.parse(xhttp.responseText);
+    console.log("data: ", data);
     // LOCATION INFORMATION
     var cityCountry = data.city.country;
     var cityName = data.city.name;
